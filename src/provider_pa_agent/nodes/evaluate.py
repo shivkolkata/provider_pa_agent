@@ -4,6 +4,7 @@ from provider_pa_agent.llm import get_llm
 from provider_pa_agent.objects import ClinicalEvidence
 from provider_pa_agent.prompt import clinical_evidence_collection_instructions, clinical_evidence_collection_user_instructions
 from langchain.messages import SystemMessage, HumanMessage
+from langgraph.types import interrupt
 
 def gather_required_clinical_doc(state: ProviderPAState) -> ProviderPAState:
 
@@ -45,9 +46,37 @@ def gather_required_clinical_doc(state: ProviderPAState) -> ProviderPAState:
     
     return state
 
-def identify_missing_info(state: ProviderPAState) -> ProviderPAState:
-    missing_gaps = state["missing_evidence_gaps"]
-
+def request_missing_information(state: ProviderPAState) -> ProviderPAState:
+    """
+    Node function (HITL): Triggered when clinical evaluation identifies gaps.
+    Pauses execution via interrupt to prompt the human specialist for missing information or documentation,
+    then appends human feedback to the clinical record.
+    """
+    gaps = state.get("missing_evidence_gaps", [])
+    
+    # LangGraph interrupt for human-in-the-loop intervention
+    human_input = interrupt({
+        "action": "PROVIDE_MISSING_CLINICAL_DOCUMENTATION",
+        "missing_gaps": gaps,
+        "message": "Clinical evaluation identified evidence gaps. Please provide additional documentation or notes to proceed."
+    })
+    
+    # human_input is expected to be a dict e.g., {"additional_notes": "Added physical therapy records from outpatient clinic."}
+    additional_notes = human_input.get("additional_notes", "No additional notes provided by reviewer.")
+    
+    # Append the human-provided data to raw ehr notes
+    if "raw_ehr_notes" not in state:
+        state["raw_ehr_notes"] = []
+    state["raw_ehr_notes"].append(f"[HUMAN SPECIALIST ADDENDUM]: {additional_notes}")
+    
+    # Clear gaps after remediation
+    # state["missing_evidence_gaps"] = []
+    
+    state["audit_log"].append({
+        "node": "request_missing_information",
+        "message": "Specialist provided missing information addendum. Gaps cleared."
+    })
+    
     return state
 
     

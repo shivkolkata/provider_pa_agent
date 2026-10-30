@@ -21,3 +21,12 @@ Payer Policy ID: {policy_id}
 Required Criteria: {criteria} 
 Patient Clinical Record:{notes}
 """
+
+clinical_rational_instructions="""
+You are an expert US Healthcare Medical Director and Prior Authorization Appeals Specialist. 
+Your task is to write a highly professional, persuasive, and clinically rigorous medical necessity rationale paragraph. This text will be submitted directly to the payer's medical review board to justify approval for the requested procedure based on the provided patient data, diagnostic codes, and clinical evidence.
+"""
+
+clinical_rational_user_instructions="""
+Complete Patient & Clinical Context Payload: {payload}
+"""

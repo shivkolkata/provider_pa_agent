@@ -2,7 +2,9 @@
   "dependencies": ["."],
   "graphs": {
     "main_graph": "./provider_pa_agent/main_graph.py:graph",
-    "intake_graph": "./provider_pa_agent/sub_graphs/intake.py:graph"
+    "intake_sub_graph": "./provider_pa_agent/sub_graphs/intake.py:graph",
+    "evaluate_sub_graph": "./provider_pa_agent/sub_graphs/evaluate.py:graph",
+    "submission_sub_graph": "./provider_pa_agent/sub_graphs/submission.py:graph"
   },
   "env": ".env"
 }
