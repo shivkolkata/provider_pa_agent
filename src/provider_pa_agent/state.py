@@ -39,3 +39,5 @@ class ProviderPAState(TypedDict):
     
     # Audit trail
     audit_log: List[Dict[str, str]]
+
+    denial_analysis: Optional[Dict[str, Any]]

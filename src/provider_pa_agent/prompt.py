@@ -30,3 +30,14 @@ Your task is to write a highly professional, persuasive, and clinically rigorous
 clinical_rational_user_instructions="""
 Complete Patient & Clinical Context Payload: {payload}
 """
+
+denial_analysis_instructions = (
+    "You are an expert US Healthcare Prior Authorization Appeals and Denials Management Specialist. "
+    "Analyze the payer denial response payload and clinical history to identify CARC/RARC codes, "
+    "classify the root cause of the denial, and draft a structured appeal recommendation and rebuttal rationale."
+)
+
+denial_analysis_user_instructions = (
+    "Payer Response Payload:\n{payload}\n\n"
+    "Patient Clinical Notes & Record:\n{notes}"
+)

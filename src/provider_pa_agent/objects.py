@@ -33,3 +33,9 @@ class ClinicalEvidence(BaseModel):
     clinical_rationale_draft: str = Field(
         description="A concise professional summary paragraph justifying medical necessity based on retrieved evidence."
     )
+
+class DenialAnalysisResult(BaseModel):
+    carc_rarc_codes: List[str] = Field(description="Identified Claim Adjustment Reason Codes (CARC) and Remittance Advice Remark Codes (RARC).")
+    denial_category: str = Field(description="Classification of the denial reason (e.g., 'Lack of Medical Necessity', 'Missing Documentation', 'Administrative Error').")
+    ai_recommendation: str = Field(description="Recommended next steps such as formal appeal, peer-to-peer review, or submitting supplementary records.")
+    appeal_rationale_draft: str = Field(description="A professional draft rationale for an appeal or rebuttal letter.")

@@ -4,7 +4,8 @@
     "main_graph": "./provider_pa_agent/main_graph.py:graph",
     "intake_sub_graph": "./provider_pa_agent/sub_graphs/intake.py:graph",
     "evaluate_sub_graph": "./provider_pa_agent/sub_graphs/evaluate.py:graph",
-    "submission_sub_graph": "./provider_pa_agent/sub_graphs/submission.py:graph"
+    "submission_sub_graph": "./provider_pa_agent/sub_graphs/submission.py:graph",
+    "response_handling_sub_graph": "./provider_pa_agent/sub_graphs/response.py:graph"
   },
   "env": ".env"
 }
