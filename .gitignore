@@ -1,0 +1,19 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+.env.*
+!.env.example
+
+data
+src/.langgraph_api
+#provider_pa_agent/__pycache__/
+#provider_pa_agent/nodes/__pycache__/
+#provider_pa_agent/sub_graphs/__pycache__/

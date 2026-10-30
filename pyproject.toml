@@ -1,0 +1,35 @@
+[project]
+name = "provider-pa-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Shiba Brata Das", email = "shivkolkata@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "colorama>=0.4.6",
+    "dotenv>=0.9.9",
+    "fastapi>=0.162.0",
+    "httpx>=0.28.1",
+    "langchain>=1.4.7",
+    "langchain-community>=0.4.2",
+    "langchain-core>=1.7.0",
+    "langchain-google-genai>=4.4.2",
+    "langchain-groq>=1.1.3",
+    "langchain-openai>=1.7.3",
+    "langchain-tavily>=0.2.18",
+    "langgraph>=1.2.18",
+    "langgraph-checkpoint-postgres>=3.2.0",
+    "langgraph-cli[inemem,inmem]>=0.4.40",
+    "psycopg[binary]>=3.3.6",
+    "pydantic>=2.14.1",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+provider-pa-agent = "provider_pa_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"

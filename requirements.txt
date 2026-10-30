@@ -1,0 +1,25 @@
+# Install langgraph, langchain, pydantic, fastapi, uvicorn, and postgres checkpointing tools
+langgraph
+langchain
+langchain-core
+pydantic
+fastapi
+uvicorn
+psycopg[binary]
+langgraph-checkpoint-postgres
+#python-dotenv
+httpx
+langchain-openai
+langchain_groq
+langchain-google-genai
+langchain-tavily
+colorama
+dotenv
+#langchain
+langchain-community
+#langchain-openai
+#langchain_groq
+#langchain-google-genai
+#langchain-tavily
+#langgraph
+langgraph-cli[inemem,inmem]

@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "main_graph": "./provider_pa_agent/main_graph.py:graph",
+    "intake_graph": "./provider_pa_agent/sub_graphs/intake.py:graph"
+  },
+  "env": ".env"
+}
