@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "provider_pa_agent": "./src/provider_pa_agent/main_graph.py:graph"
+  },
+  "python_version": "3.13"
+}

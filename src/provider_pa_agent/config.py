@@ -13,4 +13,7 @@ class Config:
     # Model defaults
     DEFAULT_OPENAI_MODEL: str = os.getenv("OPENAI_MODEL", "gpt-4o")
     DEFAULT_GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
-    DEFAULT_GROK_MODEL: str = os.getenv("GEMINI_MODEL", "qwen/qwen3.8-27b")
+    DEFAULT_GROK_MODEL: str = os.getenv(
+        "GROQ_MODEL",
+        os.getenv("GEMINI_MODEL", "qwen/qwen3.8-27b"),
+    )
